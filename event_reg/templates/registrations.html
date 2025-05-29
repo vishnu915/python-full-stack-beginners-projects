@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>All Registrations</h2>
+    
+    <table class="registrations-table">
+        <thead>
+            <tr>
+                <th>Registration Date</th>
+                <th>User</th>
+                <th>Email</th>
+                <th>Event</th>
+                <th>Event Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reg in registrations %}
+                <tr>
+                    <td>{{ reg.registration_date.strftime('%Y-%m-%d %H:%M') }}</td>
+                    <td>{{ reg.user_name }}</td>
+                    <td>{{ reg.email }}</td>
+                    <td>{{ reg.event_title }}</td>
+                    <td>{{ reg.event_date.strftime('%B %d, %Y') }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
